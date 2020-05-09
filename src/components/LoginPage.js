@@ -3,6 +3,7 @@ import {Image, Dimensions} from 'react-native';
 import { Container, Content,Form,Item,Label,Input} from 'native-base';
 import SubmitButton from '../commons/SubmitButton.js';
 import FbLogin from '../commons/FbLogin';
+import GoogleLogin from '../commons/GoogleLogin';
 const {width, height} = Dimensions.get('window');
 export default class LoginPage extends Component {
   render() {
@@ -19,8 +20,9 @@ export default class LoginPage extends Component {
               <Label>Password</Label>
               <Input />
             </Item>
-            <SubmitButton Text="Submit" />
+            <SubmitButton Text="Sign in" />
             <FbLogin Text='Login with Facebook'></FbLogin>
+            <GoogleLogin Text='Login with Google'></GoogleLogin>
          
           </Form>
           

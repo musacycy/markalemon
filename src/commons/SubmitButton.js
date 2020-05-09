@@ -7,7 +7,7 @@ const {width, height} = Dimensions.get('window');
 class SubmitButton extends Component {
   render() {
     return (
-      <Button style={buttonStyle.container}>
+      <Button success style={buttonStyle.container}>
         <Text>{this.props.Text}</Text>
       </Button>     
     );
