@@ -1,17 +1,69 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {Image, Dimensions} from 'react-native';
-import { faHome, faSearch, faUser,faShoppingBasket} from '@fortawesome/free-solid-svg-icons';
-
-import { Container,Footer,FooterTab, Content,Form,Item,Label,Input} from 'native-base';
+import { Container,Footer,FooterTab,Button, Content,Form,Item,Label,Input} from 'native-base';
 import SubmitButton from '../commons/SubmitButton.js';
 import FbLogin from '../commons/FbLogin';
 import GoogleLogin from '../commons/GoogleLogin';
-import FooterMenu from '../commons/FooterMenu';
+import { withNavigation } from 'react-navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faHome, faSearch, faShoppingBasket, faUser } from '@fortawesome/free-solid-svg-icons';
+
+
 const {width, height} = Dimensions.get('window');
 
-export default class LoginPage extends Component {
+ class LoginPage extends Component {
+  constructor(props){
+    super(props)
+    this.state = {index: 0}
+  }
+  
+  switchScreen(index){
+    this.setState({index: index})
+  }
+
   render() {
+    const homeColor =null;
+    const searchColor =null;
+    const basketColor =null;
+    const userColor =null;
+    
+    switch(this.state.index){
+
+      case 1:
+    
+      this.homeColor="orange";
+      this.searchColor= null;
+      this.basketColor= null;
+      this.userColor= null;
+        break;
+      case 2:
+      this.homeColor= null;
+      this.searchColor= "orange";
+      this.basketColor= null;
+      this.userColor= null;
+        break;
+      case 3:
+      this.homeColor= null;
+      this.searchColor= null;
+      this.basketColor= "orange";
+      this.userColor= null;
+        break;
+      case 4:
+      this.homeColor= null;
+      this.searchColor= null;
+      this.basketColor= null;
+      this.userColor= "orange";
+        break;
+        case 5:
+      this.homeColor= null;
+      this.searchColor= null;
+      this.basketColor= null;
+      this.userColor= null;
+        break;
+
+
+
+    }
     return (
       <Container>
         <Content>
@@ -25,7 +77,7 @@ export default class LoginPage extends Component {
               <Label>Password</Label>
               <Input />
             </Item>
-            <SubmitButton Text="Sign in" />
+            <SubmitButton  Text="Sign in" />
             <FbLogin Text='Login with Facebook'></FbLogin>
             <GoogleLogin Text='Login with Google'></GoogleLogin>
          
@@ -33,16 +85,23 @@ export default class LoginPage extends Component {
          
         </Content>
         <Footer>
-            <FooterTab style={{marginHorizontal:20, justifyContent: 'space-between', alignItems:'center'}}>
-           
-              <FooterMenu icon={faHome} size={24} color="orange" ></FooterMenu>
-              <FooterMenu icon={faSearch} size={24} color="orange" ></FooterMenu>
-              <FooterMenu icon={faShoppingBasket} size={24} color="orange" ></FooterMenu>
-              <FooterMenu icon={faUser} size={24} color="orange"></FooterMenu>
-            </FooterTab>
-          </Footer>
-
+        <FooterTab>
+          <Button onPress={() =>{this.switchScreen(1); this.props.navigation.navigate('Main') }}>
+          <FontAwesomeIcon icon={faHome} color={this.homeColor}></FontAwesomeIcon>
+          </Button>
+          <Button onPress={() =>{this.switchScreen(2); this.props.navigation.navigate('Search') }}>
+          <FontAwesomeIcon icon={faSearch} color={this.searchColor}></FontAwesomeIcon>
+          </Button>
+          <Button onPress={() =>{this.switchScreen(3); this.props.navigation.navigate('Cart') }}>
+          <FontAwesomeIcon icon={faShoppingBasket} color={this.basketColor}></FontAwesomeIcon>
+          </Button>
+          <Button onPress={() =>{this.switchScreen(4); this.props.navigation.navigate('User') }}>
+          <FontAwesomeIcon icon={faUser} color={this.userColor}></FontAwesomeIcon>
+          </Button>
+        </FooterTab>
+      </Footer>
       </Container>
     );
   }
 }
+export default withNavigation(LoginPage);

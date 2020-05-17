@@ -1,8 +1,10 @@
 import React from 'react';
+import 'react-native-gesture-handler';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import Root from './src/Root'
+import Navigation from './src/commons/Navigation';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ export default class App extends React.Component {
     }
 
     return (
-      <Root></Root>
-    );
+    <Navigation />
+    )
   }
 }

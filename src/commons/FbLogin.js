@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {Button,Text} from 'native-base';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faFacebookSquare, faFacebook, faFacebookF} from '@fortawesome/free-brands-svg-icons'
+import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
+
+
  class FbLogin extends Component {
     render() {
         return (
